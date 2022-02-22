@@ -1,25 +1,25 @@
-const TableBody = () => {
-  return (
-    <tbody>
-      <tr>
-        <td>Carlos</td>
-        <td>Janitor</td>
-      </tr>
-      <tr>
-        <td>Andres</td>
-        <td>Web developer</td>
-      </tr>
-      <tr>
-        <td>Natalia</td>
-        <td>President</td>
-      </tr>
-      <tr>
-        <td>Valentina</td>
-        <td>Rockstar</td>
-    </tr>
-   </tbody>
+const TableBody = props => {
+  const characters = props.characters.map((char,index) => {
+      return (
+        <tr key={index}>
+          <td>
+            {char.name}
+          </td>
+          <td>
+            {char.job}
+          </td>
+          <td>
+             <button
+              onClick={ () => props.removeCharacter(index)}
+             >Delete</button >
+          </td>
+        </tr>
+      );
+  });
+  return <tbody>{characters}</tbody>
+   
 
-  );
+
 };
 
 export default TableBody;
